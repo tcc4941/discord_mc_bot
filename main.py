@@ -8,6 +8,7 @@ import paramiko
 from ping3 import ping
 from dotenv import load_dotenv
 import time
+import keep_alive
 
 # 載入設定
 load_dotenv()
@@ -170,7 +171,9 @@ async def mc_re(ctx):
     await ctx.send("⏳ 等待 10 秒後重新啟動...")
     time.sleep(10)
     await mc_on(ctx)
+
 if __name__ == '__main__':
+    keep_alive.keep_alive()
     bot.run(DISCORD_TOKEN)
     
     
